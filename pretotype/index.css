@@ -1,0 +1,78 @@
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.scroll-wrapper {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+#landing {
+  background-color: #f0f0f0;
+  background-image: url("./background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+#landing h1 {
+  font-size: 4em;
+  margin: 0;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+}
+
+#landing p {
+  font-size: 1.5em;
+  margin: 0;
+  color: #f0f0f0;
+}
+
+.container {
+  height: 100vh;
+  scroll-snap-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  border-radius: 20px;
+  width: 60%;
+}
+
+#buying {
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+#buying img {
+  width: 40%;
+  border-radius: 20px;
+}
+
+#buyButton {
+  background-color: #5c4d7d;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#buyButton:hover {
+  background-color: #4a3a6d;
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dried Heavens</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
+  </head>
+  <body>
+    <div class="scroll-wrapper">
+      <div id="landing" class="container">
+        <div class="content">
+          <h1>Dried Heavens</h1>
+          <p>
+            Having a hard time finding a place to dry your flowers? Now, you can
+            hang them anywhere and access them easily with just a touch on your
+            phone!
+          </p>
+        </div>
+      </div>
+      <div id="buying" class="container">
+        <img src="./background.jpg" alt="Hanger" />
+        <div>
+          <h2>Our Products</h2>
+          <p>Explore our range of dried flowers and arrangements.</p>
+          <button id="buyButton">Buy Now</button>
+          <p id="message"></p>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("buyButton")
+        .addEventListener("click", function () {
+          fetch("https://sheetdb.io/api/v1/t6vqecf1ijxey", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              data: [
+                {
+                  id: "INCREMENT",
+                  action: "buy",
+                  timestamp: new Date().toISOString(),
+                },
+              ],
+            }),
+          }).then((response) => {
+            if (!response.ok) {
+              document.getElementById("message").textContent =
+                "Sorry, something went wrong. Please try again later.";
+              return;
+            }
+            document.getElementById("message").textContent =
+              "Thanks! We'll let you know when it's ready.";
+          });
+          return;
+        });
+    </script>
+  </body>
+</html>
