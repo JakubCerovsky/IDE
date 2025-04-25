@@ -11,25 +11,62 @@
         <div class="content">
           <h1>Dried Heavens</h1>
           <p>
-            Having a hard time finding a place to dry your flowers? Now, you can
-            hang them anywhere and access them easily with just a touch on your
-            phone!
+            Having a hard time finding a place to dry your flowers?<br />Now,
+            you can hang them anywhere and access them easily with just a touch
+            on your phone!
           </p>
         </div>
       </div>
-      <div id="buying" class="container">
-        <img src="./background.jpg" alt="Hanger" />
-        <div>
-          <h2>Our Products</h2>
-          <p>Explore our range of dried flowers and arrangements.</p>
-          <button id="buyButton">Buy Now</button>
-          <p id="message"></p>
+      <div id="buying1" class="container buying">
+        <img src="./background.jpg" alt="Rack operated via app" />
+        <div class="details">
+          <h2>CML-Plus Rack</h2>
+          <p>
+            The Ceiling-Mounted, Lowerable Rack (CML-Plus) is a smart solution
+            for drying flowers. Each module can be controlled via a mobile app
+            and linked together to operate from a single interface.<br />Made
+            from high-quality, sustainable materials, these racks are mounted to
+            the ceiling and lowered with a tap on your phone.
+          </p>
+          <p>Please choose the length of the rack you want to buy. <br /></p>
+          <div class="purchase">
+            <h3>499 DKK</h3>
+            <select id="select1" name="Length">
+              <option value="1">1 meter</option>
+              <option value="1.5">1.5 meter</option>
+              <option value="2">2 meters</option>
+              <option value="3">3 meters</option>
+            </select>
+            <button id="buyButton1" class="buyButton">Buy Now</button>
+          </div>
+        </div>
+      </div>
+      <div id="buying2" class="container buying">
+        <img src="./background.jpg" alt="Rack operated via app" />
+        <div class="details">
+          <h2>CML Rack</h2>
+          <p>
+            The manual version of our Ceiling-Mounted Rack lets you lower
+            flowers using a soft pull cord — no app needed. It’s built from the
+            same high-quality, sustainable materials.
+          </p>
+          <p>Please choose the length of the rack you want to buy.</p>
+          <div class="purchase">
+            <h3>249 DKK</h3>
+            <select id="select2" name="Length">
+              <option value="1">1 meter</option>
+              <option value="1.5">1.5 meter</option>
+              <option value="2">2 meters</option>
+              <option value="3">3 meters</option>
+            </select>
+            <button id="buyButton2" class="buyButton">Buy Now</button>
+          </div>
         </div>
       </div>
     </div>
     <script>
       document
-        .getElementById("buyButton")
+        .getElementById("buyButton1")
         .addEventListener("click", function () {
           fetch("https://sheetdb.io/api/v1/t6vqecf1ijxey", {
             method: "POST",
@@ -41,19 +78,49 @@
               data: [
                 {
                   id: "INCREMENT",
-                  action: "buy",
+                  action: "APP",
                   timestamp: new Date().toISOString(),
+                  length: document.getElementById("select1").value,
                 },
               ],
             }),
           }).then((response) => {
-            if (!response.ok) {
-              document.getElementById("message").textContent =
-                "Sorry, something went wrong. Please try again later.";
+            if (response.ok) {
+              window.alert(
+                "We are students currently working on the selected product. It makes us happy to know that you are interested in it!\nReach out to email: jacobcerovsky@gmail.com if you have any questions or suggestions. Thank you!"
+              );
               return;
             }
-            document.getElementById("message").textContent =
-              "Thanks! We'll let you know when it's ready.";
+          });
+          return;
+        });
+
+      document
+        .getElementById("buyButton2")
+        .addEventListener("click", function () {
+          fetch("https://sheetdb.io/api/v1/t6vqecf1ijxey", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              data: [
+                {
+                  id: "INCREMENT",
+                  action: "MANUAL",
+                  timestamp: new Date().toISOString(),
+                  length: document.getElementById("select2").value,
+                },
+              ],
+            }),
+          }).then((response) => {
+            if (response.ok) {
+              window.alert(
+                "We are students currently working on the selected product. It makes us happy to know that you are interested in it!\nReach out to email: jacobcerovsky@gmail.com if you have any questions or suggestions. Thank you!"
+              );
+              return;
+            }
           });
           return;
         });

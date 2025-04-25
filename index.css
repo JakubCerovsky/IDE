@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: "Courier New", Courier, monospace;
   background-color: #f0f0f0;
   color: #333;
   margin: 0;
@@ -19,6 +19,7 @@ body {
   background-image: url("./background.jpg");
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
 #landing h1 {
@@ -26,12 +27,14 @@ body {
   margin: 0;
   margin-bottom: 2rem;
   color: #f0f0f0;
+  text-transform: uppercase;
 }
 
 #landing p {
   font-size: 1.5em;
   margin: 0;
   color: #f0f0f0;
+  font-weight: 900;
 }
 
 .container {
@@ -46,24 +49,71 @@ body {
 }
 
 .content {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(5px);
-  padding: 20px;
-  border-radius: 20px;
-  width: 60%;
+  padding: 60px 20px;
+  width: 100%;
+  position: relative;
+  top: 150px;
 }
 
-#buying {
+.buying {
   justify-content: space-evenly;
   flex-direction: row;
 }
 
-#buying img {
+#buying1 {
+  background-color: cornsilk;
+}
+
+.buying img {
   width: 40%;
   border-radius: 20px;
 }
 
-#buyButton {
+.details {
+  width: 40%;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.details p {
+  text-align: left;
+  font-size: 1.2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.purchase {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+.purchase h3 {
+  margin: 0;
+  margin-right: 20px;
+  text-transform: uppercase;
+}
+
+select {
+  width: 150px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  margin-right: 20px;
+}
+
+#buying2 {
+  flex-direction: row-reverse;
+  background-color: rgb(231, 255, 231);
+}
+
+.buyButton {
   background-color: #5c4d7d;
   color: white;
   padding: 12px 24px;
@@ -72,7 +122,61 @@ body {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
 }
-#buyButton:hover {
+.buyButton:hover {
   background-color: #4a3a6d;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column !important;
+    padding: 40px 20px;
+  }
+
+  .content {
+    top: 50px;
+    padding: 40px 20px;
+  }
+
+  #landing h1 {
+    font-size: 2.5em;
+  }
+
+  #landing p {
+    font-size: 1.2em;
+  }
+
+  .buying {
+    flex-direction: column !important;
+  }
+
+  .buying img,
+  .details {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .purchase {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .purchase h3,
+  select,
+  .buyButton {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  select {
+    font-size: 1rem;
+  }
+
+  .buyButton {
+    padding: 14px;
+    font-size: 1rem;
+  }
 }
