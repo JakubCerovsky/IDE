@@ -130,14 +130,14 @@ select {
   background-color: #4a3a6d;
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   .container {
     flex-direction: column !important;
     padding: 40px 20px;
   }
 
   .content {
-    top: 50px;
+    top: 150px;
     padding: 40px 20px;
   }
 
@@ -146,11 +146,21 @@ select {
   }
 
   #landing p {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 
   .buying {
     flex-direction: column !important;
+  }
+  .buying p {
+    font-size: 1em;
+  }
+
+  .buying h2 {
+    font-size: 1.3em;
+  }
+  .buying h3 {
+    font-size: 1.1em;
   }
 
   .buying img,
