@@ -114,6 +114,11 @@ select {
   background-color: rgb(231, 255, 231);
 }
 
+img {
+  max-width: 500px;
+  border-radius: 20px;
+}
+
 .buyButton {
   background-color: #5c4d7d;
   color: white;
